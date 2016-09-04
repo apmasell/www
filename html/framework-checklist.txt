@@ -1,0 +1,94 @@
+Framework Checklist
+by Andre Masella (additions from Brian Brail and Marco Paganini)
+Based on the Programming Language Checklist by Colin McMillen, Jason Reed, and Elly Jones.
+
+You appear to be advocating a new:
+[ ] framework  [ ] platform  [ ] pipeline manager [ ] automation system
+[ ] build system  [ ] continuous integration system  [ ] testing system
+[ ] marble machine  [ ] Rube Goldberg machine builder machine
+Your system will not work.  Here is why it will not work.
+
+You appear to believe that:
+[ ] Repeating commands is what makes programming difficult
+[ ] Generated code will not require debugging
+[ ] All computers are configured basically the same
+[ ] Version management is a solved problem
+[ ] Package management systems all have similar:
+    [ ] behaviour  [ ] APIs  [ ] notions of dependencies  [ ] package names
+    [ ] security considerations  [ ] notions of packages
+[ ] There is only one package management system ever in use
+[ ] Describing complex sequences of events is not programming, so the description can be:
+    [ ] delimited text  [ ] YAML  [ ] XML
+[ ] Earlier steps will never define the behaviour of subsequent steps
+[ ] There is no need to generate the configurations programmatically
+[ ] Stringly-typed systems are easy to use because everything is a string
+[ ] Parallelization is just a matter of doing multiple things at once
+[ ] The user has root access on the machine where it will run
+[ ] Installing packages is trivial
+[ ] A scripting language's serialization library is a good way to send state to compute nodes.
+
+Unfortunately, your system:
+[ ] has XML  [ ] has a textual macro system  [ ] has a textual macro system embedded in XML
+[ ] generates code  [ ] conflates strings and lists  [ ] does not allow files with spaces
+[ ] does not integrate with source control  [ ] only works when integrated with source control
+[ ] produces traces of your system's code rather than my configuration when it fails
+
+The following philosophical objections apply:
+[ ] Programmers should not need to read the source code of your tool to use it
+[ ] Programmers will infer how to write complex cases from the provided "Hello, World" example
+[ ] The documentation is not helpful because it:
+    [ ] does not exist  [ ] documents the tool's code
+[ ] There is no way to do a dry run
+[ ] If it crashes part way through, the whole pipeline must be re-run
+[ ] It does not work from the command line
+[ ] It requires a database
+[ ] The log files or verbose output are unhelpful because they:
+    [ ] are non existent
+    [ ] are too great in number to search
+        [ ] with no indication of where the error is
+    [ ] only contain information about successes
+    [ ] do not describe what the system is attempting to execute
+    [ ] are binary logs and require a parser to print their contents which is
+        [ ] not yet written
+        [ ] currently not working
+[ ] The default configuration is one that works for your environment
+[ ] Configuration information should not have to be duplicated
+[ ] Program exit codes are important
+[ ] File timestamps are important
+[ ] Programs occasionally produce corrupt files and you need to handle that
+[ ] I do not wish to rewrite or wrap all of my existing tools in _________________
+[ ] Your system' configuration is actually mutilated Python/Perl/Shell/...
+    [ ] using any features of that language will cause it to crash spectacularly
+[ ] You built your framework as a wrapper around an exsiting framework that
+    attempts to solve the same problem
+
+You seem unaware that:
+[ ] Compute clusters sometimes do not have shared disk
+[ ] Compute clusters do not have shared memory
+[ ] Compute clusters should not require user interaction
+[ ] Compute clusters sometimes require the memory to be specified in advance
+[ ] Files can be very big
+[ ] Installing a package of the same name does not guarantee it to be the same software
+[ ] Everything can fail, including:
+    [ ] Cluster Nodes  [ ] Disks [ ] Network Cards [ ] Network Links
+    [ ] Internet Connections [ ] Cloud Services [ ] Humans
+   And:
+    [ ] You may not get prior notice of failure
+    [ ] The failed component may not be recoverable
+    [ ] The failed component may spontaneously recover
+
+Taking the wider ecosystem into account, I would like to note that:
+[ ] Your top feature __________ was implemented in Make during the 1980s.
+[ ] We already have a textual macro system
+[ ] You have reinvented Make but worse
+[ ] You have reinvented M4 but worse
+[ ] You have reinvented CMake but worse
+[ ] You have reinvented Jenkins but worse
+[ ] You have reinvented AutoTools but worse
+[ ] You have reinvented AutoTools better, but that's still no justification
+[ ] You have reinvented MSBuild but non-ironically
+
+In conclusion, this is what I think of you:
+[ ] You have some interesting ideas, but this won't fly.
+[ ] This is a bad system, and you should feel bad for inventing it.
+[ ] Using this system is an adequate punishment for inventing it.
