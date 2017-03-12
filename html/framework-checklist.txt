@@ -1,5 +1,5 @@
 Framework Checklist
-by Andre Masella (additions from Brian Brail and Marco Paganini)
+by Andre Masella (additions from Brian Brasil and Marco Paganini)
 Based on the Programming Language Checklist by Colin McMillen, Jason Reed, and Elly Jones.
 
 You appear to be advocating a new:
