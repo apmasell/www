@@ -35,7 +35,7 @@ Unfortunately, your system:
 
 The following philosophical objections apply:
 [ ] Programmers should not need to read the source code of your tool to use it
-[ ] Programmers will infer how to write complex cases from the provided "Hello, World" example
+[ ] Programmers will not be able to infer how to write complex cases from the provided "Hello, World" example
 [ ] The documentation is not helpful because it:
     [ ] does not exist  [ ] documents the tool's code
 [ ] There is no way to do a dry run
@@ -57,7 +57,7 @@ The following philosophical objections apply:
 [ ] File timestamps are important
 [ ] Programs occasionally produce corrupt files and you need to handle that
 [ ] I do not wish to rewrite or wrap all of my existing tools in _________________
-[ ] Your system' configuration is actually mutilated Python/Perl/Shell/...
+[ ] Your system's configuration is actually mutilated Python/Perl/Shell/...
     [ ] using any features of that language will cause it to crash spectacularly
 [ ] You built your framework as a wrapper around an exsiting framework that
     attempts to solve the same problem
