@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>How to Pick a Programing Language</title>
+    <style type="text/css">
+      body { font-family: sans-serif; padding: 10vh 20vw; font-size: 16pt; }
+      .option { text-align:center; margin: 0.5em; background-color: #4682b4; color: #fff; padding: 1em; }
+      .result { text-align:center; font-size: 24pt; color: #4682b4; }
+    </style>
+    <script type="module">
+const tree = {
+  question: "Who should design your language?",
+  answers: {
+    "A committee": {
+      question: "Is the language a tire fire?",
+      answers: {
+        Yes: {
+          question: "What should the committee do to fix it?",
+          answers: {
+            Nothing: {
+              name: "C",
+              description:
+                "It's fine. Don't worry. It's fine. This is fine. It's fine."
+            },
+            "Add features to ease the pain": {
+              name: "C++",
+              description:
+                "It was so much better when they added smart pointers, and traits will fix everything in the next version. Just don't use the pointers...unless you have to."
+            },
+            "Remove features to ease the pain": {
+              name: "JavaScript",
+              description:
+                "Just don't use the old stuff. It's fine. One day, there might be a way to know the type of something reliably. Real soon now."
+            },
+            "Write a spec so vauge implementors can do whatever": {
+              name: "SQL",
+              description: "You get to be your own class of vulnerabilities."
+            }
+          }
+        },
+        No: {
+          name: "Java",
+          description:
+            "Competently delivering features users gave up asking for a decade ago."
+        }
+      }
+    },
+    "A corporation": {
+      question: "Which company?",
+      answers: {
+        Amazon: {
+          name: "Turk",
+          description:
+            "The goal is to have terrible conditions for your employees, right?"
+        },
+        Apple: { name: "Swift", description: "Hey, it's not Objective-C." },
+        Facebook: {
+          name: "Hack",
+          description: "I guess? Does anyone use this?"
+        },
+        Google: {
+          question: "Do you have attachment issues?",
+          answers: {
+            Yes: {
+              name: "Dart",
+              description:
+                "Ooof. I'm sorry. I'm sure it will get lots of love from Google in the future."
+            },
+            No: {
+              name: "Go",
+              description:
+                "Umm, so you might want to read up on Rob Pike before you stan Google."
+            }
+          }
+        },
+        Microsoft: {
+          question: "How much CS education have you had?",
+          answers: {
+            "Master's": {
+              name: "F#",
+              description: "It's as close to Haskell as you're going to get."
+            },
+            "Bachelor's": {
+              name: "C#",
+              description:
+                "Eh, it's fine. Just pretend you don't know how VB.NET works."
+            },
+            "I read a book once": {
+              name: "VB.NET",
+              description: "And people say Python is executable pseudocode."
+            }
+          }
+        },
+        Intel: {
+          name: "Assembly Language",
+          description:
+            "They've still got those instructions for dealing with binary-coded decimal."
+        }
+      }
+    },
+    "A dictator": {
+      question: "What motivates them?",
+      answers: {
+        Love: {
+          question: "What do they love?",
+          answers: {
+            Simplicity: {
+              name: "Python",
+              description:
+                "Creating a culture of simplity, four underscores at a time."
+            },
+            Happiness: {
+              name: "Ruby",
+              description: "It's like Python, but with more satisfaction."
+            },
+            Complexity: {
+              name: "Clojure",
+              description:
+                "It's the fusion of the JVMs type system and LISPs spaghetti. What could be simpler?"
+            }
+          }
+        },
+        Hate: {
+          question: "What do they hate?",
+          answers: {
+            Android: {
+              name: "Kotlin",
+              description:
+                "It's like a time machine where you take modern language features and send them to Java of days past."
+            },
+            Programmers: {
+              name: "Go",
+              description:
+                "Rob Pike thinks poorly of you, in case that didn't come through the language design."
+            }
+          }
+        },
+        Insecurity: {
+          name: "R",
+          description:
+            "You're smart enough not to get bitten by vector recycling. You know you have to use seq_along(x) and not 1:length(x), right?"
+        },
+        "Lust for Power": {
+          question: "What is the source of their power?",
+          answers: {
+            JVM: {
+              name: "Scala",
+              description:
+                "It's Java, but better, but still Java, but also better."
+            },
+            LLVM: {
+              name: "Rust",
+              description:
+                "For all those time you want the power of C++ with the simplicity of Haskell."
+            }
+          }
+        },
+        Insanity: {
+          question: "How are they crazy?",
+          answers: {
+            "There's more than one way to do it!": {
+              name: "PERL",
+              description:
+                "It's fine. PERL5 is totally a language that people still want to use."
+            },
+            "There will eventually be more than one way to do it.": {
+              name: "Raku/PERL6",
+              description:
+                "It's fine. Raku is totally a language that PERL5 programmers will start moving to."
+            },
+            "I have no idea what I'm doing.": {
+              name: "PHP",
+              description:
+                "When your hobby grew into a monster that runs a sizable chunk of the Internet."
+            }
+          }
+        }
+      }
+    },
+    "Time immemorial": {
+      question: "What operating system do you use?",
+      answers: {
+        "OS/360": {
+          name: "COBOL",
+          description:
+            "I hope you work for a bank, I guess... I mean...hope...well..."
+        },
+        UNIX: {
+          name: "BASH",
+          description:
+            "I'm sure that 1000 line script has no quoting bugs in it. It's totally good to go."
+        },
+        Solaris: {
+          name: "CSH",
+          description:
+            "I think they finally removed the hardcoded paths to Bill Joy's home directory from it."
+        },
+        Windows: {
+          name: "VBA",
+          description:
+            "Maybe, if you're good, they'll let you use PowerShell one day."
+        },
+        "I don't know. I'm a mathematician.": {
+          question: "What kind of math?",
+          answers: {
+            "Category theory": {
+              name: "Haskell",
+              description:
+                "Every joke about monads and endofunctors has been made, right?"
+            },
+            "Math about math": {
+              name: "Coq",
+              description:
+                "I mean, you're probably only going to use ito write a more complicated language for a paper."
+            },
+            "Linear algebra": {
+              name: "FORTRAN",
+              description: "Algebra hasn't changed. Why change your language?"
+            },
+            "Does it matter? I have a grant.": {
+              name: "MATLAB",
+              description: "More expensive than a grad student and more useful."
+            },
+            "You wouldn't understand": {
+              name: "Maple",
+              description: "It sings! It dances! It maths!"
+            },
+            "I'm in first year": {
+              name: "Julia",
+              description:
+                "What you really want in a math programming language is one made after your parents were born."
+            }
+          }
+        }
+      }
+    }
+  }
+};
+const text = value => {
+  const container = document.createElement("P");
+  container.innerText = value;
+  document.body.appendChild(container);
+};
+const button = (value, callback) => {
+  const container = document.createElement("P");
+  container.className = "option";
+  container.innerText = value;
+  container.addEventListener("click", callback);
+  document.body.appendChild(container);
+};
+const render = (node, back) => {
+  while (document.body.hasChildNodes()) {
+    document.body.removeChild(document.body.lastChild);
+  }
+
+  if (node.hasOwnProperty("question")) {
+    text(node.question);
+    for (const [text, next] of Object.entries(node.answers)) {
+      button(text, () => render(next, () => render(node, back)));
+    }
+  } else {
+    text("The best language for you is:");
+    const container = document.createElement("P");
+    container.className = "result";
+    container.innerText = node.name;
+    document.body.appendChild(container);
+    text(node.description);
+    button("Yikes! Let me try that agin!", () => render(tree, null));
+  }
+  if (back) {
+    text("\xA0");
+    button("Back", back);
+  }
+};
+
+render(tree, null);
+    </script>
+  </head>
+  <body>
+	</body>
+</html>
